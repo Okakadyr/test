@@ -1,0 +1,61 @@
+body {
+	background-color: white;
+	align-content: center;
+}
+.content {
+  max-width: 400px;
+  margin: auto;
+}
+.block{
+	border: 1px solid gray;
+	margin-top: 60px;
+	padding-bottom: 120px;
+}
+.logo {
+	margin: 30px auto;
+	width: 160px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login{
+	width: 250px;
+    margin: auto;
+    display: block;
+    padding: 8px 3px;
+    margin: 5px auto;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 11px;
+}
+.button{
+	color: white;
+	margin: 10px auto;
+	padding: 10px;
+	border-radius: 8px;
+	width: 266px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+	background-color: #4CB5F9;
+	border: 0;
+}
+.ili{
+	color:  #5a5b5c;
+	font-family: arial;
+}
+
+.fb{
+	font-family: sans-serif;
+	color:  #385185;
+	font-size: 14px;
+}
+.forget {
+	font-size: 11px;
+	font-family: sans-serif;
+}
+.reg {
+	color: #4CB5F9;
+}

